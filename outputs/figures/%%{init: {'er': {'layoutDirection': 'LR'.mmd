@@ -1,0 +1,35 @@
+%%{init: {'er': {'layoutDirection': 'LR'}} }%%
+erDiagram
+    companies ||--o{ reports : has
+    companies ||--o{ stock_prices : has
+    companies ||--o{ events : has
+    companies ||--o{ company_attributes : has
+
+    companies {
+        varchar edinet_code
+        varchar company_name
+        varchar address
+        varchar securities_code PK
+    }
+    reports {
+        varchar doc_id PK
+        varchar edinet_code
+        date report_date
+        text risk_text
+    }
+    stock_prices {
+        date date PK
+        varchar securities_code PK
+        float close_price
+    }
+    events {
+        date event_date PK
+        varchar securities_code PK
+        varchar event_type
+    }
+    company_attributes {
+        varchar securities_code PK
+        int fiscal_year PK
+        int total_employees
+        bigint market_cap
+    }
