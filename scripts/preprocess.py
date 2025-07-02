@@ -68,7 +68,6 @@ def load_topix_and_edinet(topix_csv_path: str, edinet_csv_path: str) -> pd.DataF
     return df_merged
 
 
-import pandas as pd
 
 def overwrite_company_ids_if_exists(df: pd.DataFrame, cur) -> pd.DataFrame:
     """
